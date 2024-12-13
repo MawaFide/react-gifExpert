@@ -1,27 +1,25 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const AddCategory = ({ onNewCategory }) => {
-    const [inputvalue, setInputvalue] = useState('');
+    const [inputValue, setInputValue] = useState("");
 
     const handleChange = ({ target }) => {
-        setInputvalue(target.value);
+        setInputValue(target.value);
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(inputvalue.length);
+        if (inputValue.trim().length <= 1) return;
+        onNewCategory(inputValue);
+        
 
-        if (inputvalue.trim().length <= 1) return;
-
-        // onNewCategory((categories) => [inputvalue, ...categories]);
-        onNewCategory(inputvalue.trim());
-        setInputvalue("");
+        setInputValue("");
     };
     return (
         <form onSubmit={handleSubmit}>
             <input
                 type="text"
                 placeholder="texto aqui"
-                value={inputvalue}
+                value={inputValue}
                 onChange={handleChange}
             />
         </form>

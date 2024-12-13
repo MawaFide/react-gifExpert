@@ -3,26 +3,23 @@ import { AddCategory } from "./components/AddCategory";
 import { GridGif } from "./components/GridGif";
 
 export const GifExpertApp = () => {
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState(['one push']);
 
-    const onAddCoategory = (onNewCategory) => {
-        //comprobar si esxiste la categoria para no agregarla de nuevo
+    const addCategories = (onNewCategory) => {
         if (categories.includes(onNewCategory)) return;
 
         setCategories([onNewCategory, ...categories]);
-        console.log(onNewCategory);
+
+        console.log(onNewCategory,'Padre');
     };
+
     return (
         <>
-            <div>GifExpertApp</div>
-
-            {/* input aqui */}
-            <AddCategory onNewCategory={onAddCoategory} />
-            {/* lista aqui */}
-
-            {categories.map((category) => (
-                <GridGif key={category} category={category} />
-            ))}
+            <h2>GifExpertApp</h2>
+            {/* input */}
+            <AddCategory onNewCategory={addCategories} />
+            {/* lista */}
+            {categories.map((category)=> (<GridGif key={category} category={category}/>))}
         </>
     );
 };
