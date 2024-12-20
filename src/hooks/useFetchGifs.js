@@ -4,7 +4,9 @@ import { getGifs } from "../components/getGif";
 
 export const useFetchGifs = (category) => {
     const [images, setImages] = useState([]);
-    const [isloading, setIsloading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+    
+    
 
     const getImages = async () => {
         const newImage = await getGifs(category);
@@ -16,6 +18,6 @@ export const useFetchGifs = (category) => {
 
     return {
         images,
-        isloading,
+        isLoading,
     };
 };
