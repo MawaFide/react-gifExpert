@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { AddCategory } from "./components/AddCategory";
-import { GridGif } from "./components/GridGif";
+import { AddCategory,GridGif } from "./components/";
+
 
 export const GifExpertApp = () => {
     const [categories, setCategories] = useState(['one push']);
