@@ -3,7 +3,7 @@ import { AddCategory,GridGif } from "./components/";
 
 
 export const GifExpertApp = () => {
-    const [categories, setCategories] = useState(['one push']);
+    const [categories, setCategories] = useState(['one punch']);
 
     const addCategories = (onNewCategory) => {
         if (categories.includes(onNewCategory)) return;
